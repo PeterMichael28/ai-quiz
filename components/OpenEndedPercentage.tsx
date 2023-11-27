@@ -11,7 +11,7 @@ const OpenEndedPercentage = ({ percentage }: Props) => {
     <Card className="flex flex-row items-center p-2">
       <Target size={30} />
       <span className="ml-3 text-2xl opacity-75">{percentage}</span>
-      <Percent className="" size={25} />
+      <Percent className="" size={20} />
     </Card>
   );
 };

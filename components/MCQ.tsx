@@ -173,16 +173,17 @@ const MCQ = ({ game }: Props) => {
         />
       </div>
       <Card className="w-full mt-4">
-        <CardHeader className="flex flex-row items-center">
-          <CardTitle className="mr-5 text-center divide-y divide-zinc-600/50">
-            <div>{questionIndex + 1}</div>
-            <div className="text-base text-slate-400">
-              {game.questions.length}
-            </div>
-          </CardTitle>
-          <CardDescription className="flex-grow text-lg">
-            {currentQuestion?.question}
-          </CardDescription>
+        <CardHeader className="flex flex-col items-start justify-center gap-y-2 ">
+        <CardTitle className="mr-5 text-center divide-y divide-zinc-600/50 flex items-center gap-x-2 text-base text-slate-400">
+       Question
+       <div>{questionIndex + 1}</div> /
+       <div className="text-base text-slate-400 ">
+        {game.questions.length}
+       </div>
+      </CardTitle>
+      <CardDescription className=" text-lg">
+       {currentQuestion?.question}
+      </CardDescription>
         </CardHeader>
       </Card>
       <div className="flex flex-col items-center justify-center w-full mt-4">

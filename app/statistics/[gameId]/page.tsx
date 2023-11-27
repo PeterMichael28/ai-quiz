@@ -39,7 +39,7 @@ const Statistics = async ({ params: { gameId } }: Props) => {
       }
       return acc;
     }, 0);
-    accuracy = (totalCorrect / game.questions.length) * 100;
+    accuracy = Math.ceil((totalCorrect / game.questions.length) * 100) ;
   } else if (game.gameType === "open_ended") {
     let totalPercentage = game.questions.reduce((acc, question) => {
       return acc + (question.percentageCorrect ?? 0);

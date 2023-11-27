@@ -22,17 +22,17 @@ export async function POST(req: Request, res: Response) {
     const body = await req.json();
    
     const { amount, topic, type } = getQuestionsSchema.parse(body);
-    console.log({amount, topic, type })
+   
     let questions: any;
     if (type === "open_ended") {
       questions = await strict_output(
-        "You are a helpful AI that is able to generate a pair of question and answers, the length of each answer should not be more than 25 words, store all the pairs of answers and questions in a JSON array",
+        "You are a helpful AI that is able to generate a pair of question and answers, the length of each answer should not be more than 15 words, store all the pairs of answers and questions in a JSON array",
         new Array(amount).fill(
           `You are to generate a random hard open-ended questions about ${topic}`
         ),
         {
           question: "question",
-          answer: "answer with max length of 20 words",
+          answer: "answer with max length of 10 words",
         }
       );
     } else if (type === "mcq") {
@@ -50,6 +50,8 @@ export async function POST(req: Request, res: Response) {
         }
       );
     }
+
+    console.log({questions})
     return NextResponse.json(
       {
         questions: questions,

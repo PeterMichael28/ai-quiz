@@ -41,7 +41,7 @@ export async function POST(req: Request, res: Response) {
         },
       },
     });
-console.log('got here')
+
 
     const { data } = await axios.post(
       `${process.env.API_URL as string}/api/questions`,
@@ -51,7 +51,7 @@ console.log('got here')
         type,
       }
     );
-console.log({data})
+
     if (type === "mcq") {
       type mcqQuestion = {
         question: string;
